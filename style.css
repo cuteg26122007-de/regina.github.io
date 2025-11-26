@@ -1,0 +1,830 @@
+/* style.css */
+body {
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+/* Logo */
+.logo {
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.navbar {
+    transition: all 0.4s ease;
+    padding: 15px 0;
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+}
+
+/* Transparan untuk index di atas hero */
+.navbar.index {
+    background-color: transparent;
+}
+
+/* Solid biru untuk scroll / halaman lain */
+.navbar.scrolled,
+.navbar.solid {
+    background-color: #0d6efd; /* biru sekolah */
+    padding: 15px 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+}
+
+/* Logo transition */
+.navbar-brand img {
+    transition: all 0.3s ease;
+}
+
+.navbar.scrolled .navbar-brand img {
+    width: 80px;
+    height: 50px;
+}
+
+/* Navbar links - Hanya untuk link biasa (bukan dropdown) */
+.navbar-nav .nav-link {
+    color: white;
+    margin-right: 20px;
+    position: relative;
+    transition: color 0.3s;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: #ffeb3b; /* highlight link aktif */
+}
+
+/* Garis bawah untuk semua link (termasuk HOME) */
+.navbar-nav .nav-link::after {
+    content: "";
+    display: block;
+    height: 2px;
+    width: 0%;
+    background: greenyellow; /* warna hijau seperti di video */
+    transition: width 0.3s;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+}
+
+.navbar-nav .nav-link:hover::after,
+.navbar-nav .nav-link.active::after {
+    width: 100%;
+}
+
+/* Navbar toggle button */
+.navbar-toggler {
+    border: none;
+}
+
+.navbar-toggler-icon {
+    color: white;
+}
+
+/* --- PERBAIKAN DRODOWN NAVBAR - TANDA PANAH DI PINGGIR KANAN & GARIS BAWAH --- */
+
+/* Atur link dropdown (termasuk HOME) */
+.navbar-nav .nav-link.dropdown-toggle {
+  position: relative;
+  padding-right: 2.5rem; /* Beri ruang ekstra untuk panah */
+  display: inline-flex;
+  align-items: center;
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+/* Styling tanda panah dropdown */
+.navbar-nav .nav-link.dropdown-toggle::after {
+    content: "\25BC"; /* Simbol panah bawah */
+    font-size: 0.6em; /* Ukuran kecil */
+    color: white; /* Warna putih */
+    position: absolute;
+    right: 1rem; /* Tetap di sisi kanan */
+    top: 50%;
+    transform: translateY(-50%); /* Tengahkan vertikal */
+    pointer-events: none; /* Tidak mengganggu klik */
+    transition: color 0.3s;
+}
+
+/* Efek saat hover untuk dropdown */
+.navbar-nav .nav-link.dropdown-toggle:hover {
+    color: #ffeb3b;
+}
+
+.navbar-nav .nav-link.dropdown-toggle:hover::after {
+    color: #ffeb3b; /* Panah juga berubah warna */
+}
+
+/* Efek saat aktif untuk dropdown */
+.navbar-nav .nav-link.dropdown-toggle.active {
+    color: #ffeb3b;
+}
+
+.navbar-nav .nav-link.dropdown-toggle.active::after {
+    color: #ffeb3b;
+}
+
+/* Smooth scroll for anchors */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Hero */
+.hero {
+  background: url('../img/poto.jpg') no-repeat center center;
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  color: white;
+  text-shadow: 1px 1px 2px #28a745;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-sizing: border-box;
+  padding-top: 80px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.btn {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 25px;
+  border-radius: 5px;
+  text-decoration: none;
+  
+}
+.lead {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 10px;
+  margin-top: 20px;
+  font-size: 30px;
+}
+
+.info-petunjuk {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 10px;
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+/* Profil */
+.profil {
+  padding: 40px;
+  margin-bottom: 8px;
+  background-size: cover;
+  max-height: 100vh;
+}
+
+.profil h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color:#4169E1;
+}
+
+.profil .container {
+  max-width: 800px;
+  margin: auto;
+  font-size: 20px;
+  line-height: 1.8;
+}
+
+/* Kontak & Grafik */
+.kontak,
+.grafik {
+  padding: 40px;
+  background: #f9f9f9;
+}
+
+.kontak ul li {
+  margin: 10px 0;
+}
+
+.content-section {
+    padding: 60px 20px;
+    background-color: #f8f9fa;
+}
+
+.page-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 40px;
+    color: #0d6efd; /* warna utama */
+}
+
+/* Card Kontak */
+.contact-card {
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: none;
+    border-radius: 15px;
+    padding: 20px;
+}
+
+.contact-card .icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: #0d6efd; /* warna ikon default */
+}
+
+/* Card body */
+.contact-card h5 {
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #212529;
+}
+
+.contact-card p {
+    color: #495057;
+    font-size: 0.95rem;
+}
+
+/* Hover efek */
+.contact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* Warna spesifik untuk jenis kontak */
+.contact-card.map .icon {
+    color: #dc3545; /* merah untuk lokasi */
+}
+
+.contact-card.whatsapp .icon {
+    color: #25d366; /* hijau WhatsApp */
+}
+
+.contact-card.email .icon {
+    color: #0d6efd; /* biru email */
+}
+
+/* Responsive */
+@media (max-width: 767px) {
+    .contact-card {
+        margin-bottom: 20px;
+    }
+}
+/* Footer & Header */
+.footer {
+  background-color: gray;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  position: relative !important; /* PENTING! */
+  margin-top: auto !important;
+}
+
+.header {
+  background-color: #adb5bd;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.eskul h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-weight: bold;
+  color:#4169E1;
+}
+
+/* Gallery grid mirip Kejuruan */
+.eskul-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 gambar sejajar */
+  gap: 20px;
+}
+
+.eskul-img {
+  width: 100%;
+  height: 250px; /* tinggi tetap */
+  object-fit: cover; /* gambar tetap proporsional, tidak kepotong aneh */
+  border-radius: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.eskul-img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+  .eskul-gallery {
+    grid-template-columns: 1fr; /* stack jadi 1 per baris di HP */
+  }
+  .eskul-img {
+    height: 200px;
+  }
+}
+
+/* Section Kejuruan */
+.kejuruan {
+  background-color: #f8f9fa; /* warna lembut abu muda */
+  padding: 50px 0;
+  text-align: center;
+}
+
+.kejuruan h2 {
+  font-weight: bold;
+  color: #4169E1; /* biru madani */
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+
+/* Card gallery */
+.kejuruan-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.kejuruan-card {
+  width: 45%;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.kejuruan-card:hover {
+  transform: scale(1.03);
+}
+
+.kejuruan-card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.kejuruan-card figcaption {
+  margin-top: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #4169E1;
+}
+
+.kejuruan-card p {
+  font-size: 16px;
+  color: #555;
+  margin-top: 8px;
+  text-align: justify;
+  line-height: 1.5;
+}
+
+/* Responsif */
+@media (max-width: 758px) {
+  .kejuruan-card {
+    width: 100%;
+  }
+}
+
+
+.visi-misi {
+  padding: 40px;
+  margin-bottom: 20px;
+  background-size: cover;
+  max-height: 100vh;
+  text-align: center;
+}
+
+/* Visi & Misi */
+.visi-misi h2 {
+  margin-bottom: 8px;
+  background-size: cover;
+  max-height: 100vh;
+  font-size: 20px;
+  text-align: center;
+  font-weight: bold;
+  color:#4169E1;
+}
+.visi-misi .container {
+  max-width: 800px;
+  text-align: center;
+  margin: auto;
+  font-size: 20px;
+  line-height: 1.8;
+
+}
+/* Judul section */
+.guru h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-weight: bold;
+    color: #4169E1;
+}
+
+/* Area scrollable - HILANGKAN SCROLLBAR HORIZONTAL */
+.guru-scroll {
+    overflow-x: auto;
+    overflow-y: hidden; /* Pastikan tidak ada scroll vertikal yang tidak perlu */
+    padding-bottom: 10px;
+
+    /* --- SOLUSI UNTUK MENYEMBUNYIKAN SCROLLBAR --- */
+    /* Untuk WebKit (Chrome, Safari, Edge) */
+    &::-webkit-scrollbar {
+        height: 0 !important; /* Set tinggi scrollbar menjadi 0 */
+    }
+
+    /* Untuk Firefox */
+    scrollbar-width: none; /* "none" untuk menyembunyikan scrollbar */
+
+    /* Untuk IE/Edge Legacy */
+    -ms-overflow-style: none;
+}
+
+/* Wrapper kartu */
+.guru-wrapper {
+    display: flex;
+    gap: 20px;
+    flex-wrap: nowrap;
+    padding: 10px;
+    /* Jangan lupa set width agar bisa scroll */
+    min-width: max-content; /* Ini penting agar wrapper bisa lebih lebar dari container */
+}
+
+/* Kartu guru */
+.guru-wrapper .card {
+    flex: 0 0 auto;
+    width: 250px;
+    border-radius: 15px;
+    border: none;           /* hilangkan border */
+    box-shadow: none;       /* hilangkan shadow default di card */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #fff; /* pastikan background putih */
+}
+
+/* Gambar kartu */
+.guru-wrapper .card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    display: block;         /* hilangkan garis/gap bawah gambar */
+    margin: 0;              /* hilangkan margin bawaan */
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+/* Hover efek kartu */
+.guru-wrapper .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+/* Card body */
+.card-body {
+    padding: 15px;
+    border-radius: 0 0 15px 15px;          /* tetap melengkung di bawah */
+    /* Hapus shadow untuk menghilangkan garis bawah */
+    box-shadow: none;
+}
+
+/* Judul dan teks */
+.card-title {
+    font-size: 17px;
+    font-weight: 600;
+    color: #333;
+}
+
+.card-text {
+    font-size: 14px;
+    color: #666;
+}
+
+
+
+/* Lokasi */
+.lokasi {
+  padding: 90px;
+  display: flex;
+  height: 100%;
+  color:#4169E1;
+  font-weight: bold;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+.lokasi h3{
+  margin-top: 8px;
+  text-align: center;
+}
+.alumni h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-weight: bold;
+  color: #4169E1;
+}
+
+/* Area scroll horizontal - HILANGKAN SCROLLBAR HORIZONTAL */
+.alumni-scroll {
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 10px;
+
+    /* --- SOLUSI UNTUK MENYEMBUNYIKAN SCROLLBAR --- */
+    &::-webkit-scrollbar {
+        height: 0 !important;
+    }
+
+    scrollbar-width: none;
+
+    -ms-overflow-style: none;
+}
+
+/* Wrapper untuk card */
+.alumni-wrapper {
+  display: flex;
+  gap: 20px;
+  flex-wrap: nowrap;
+  padding: 10px;
+  min-width: max-content; /* Penting untuk memungkinkan scroll */
+}
+
+/* Kartu alumni */
+.alumni-card {
+  flex: 0 0 auto;
+  width: 320px;
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  /* Hapus garis bawah dari kartu alumni */
+  border: none;
+  /* Hapus shadow untuk menghilangkan garis bawah */
+  box-shadow: none;
+}
+
+.alumni-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+/* Gambar alumni */
+.alumni-img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+}
+
+/* Isi teks alumni */
+.alumni-body {
+  padding: 15px;
+  text-align: center;
+}
+
+.alumni-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.alumni-year {
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 10px;
+}
+
+.alumni-desc {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.alumni-quote {
+  font-style: italic;
+  font-size: 13px;
+  color: #4169E1;
+  background: #f1f5ff;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.whatsapp-float {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25D366;
+  border-radius: 50%;
+  text-align: center;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.whatsapp-float img {
+  width: 35px;
+  height: 35px;
+}
+.password-container {
+  position: relative;
+  width: 100%;
+  margin: 8px 0;
+}
+  .password-container input {
+  width: 100%;
+  padding: 10px;
+  padding-right: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  box-sizing: border-box;
+  }
+  .toggle-password {
+  right: 10px;
+  top: 40%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #666;
+  z-index: 4;
+}
+  .password-container .btn-login {
+  margin-top: 15px;
+  }
+  .password-container + button {
+ margin-top: 15px;
+  }
+  .input-group {
+    box-sizing: border-box;
+    border-radius: 4px;
+  }
+.form-control {
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    padding: 12px;
+    font-size: 16px;
+    box-shadow: none;
+}
+
+.form-control:focus {
+    border-color: #1877f2;
+    box-shadow: 0 0 0 2px rgba(24, 119, 242, 0.2);
+}
+
+/* Ikon mata lebih kecil dan rapi */
+.input-group .btn-outline-secondary {
+    padding: 0 12px;
+    border-left: none;
+    background: transparent;
+    color: #666;
+    font-size: 14px;
+}
+
+.input-group .btn-outline-secondary:hover {
+    background: #f0f0f0;
+    color: #333;
+}
+
+/* Jarak antara input dan tombol */
+.mb-3 + .btn {
+    margin-top: 15px;
+}
+
+/* Tombol Login gaya Facebook */
+.btn-primary {
+    background-color: #1877f2;
+    border: none;
+    padding: 12px;
+    font-weight: bold;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+.btn-primary:hover {
+    background-color: #166fe5;
+}
+.password-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.password-wrapper input {
+    padding-right: 40px; /* ruang untuk ikon */
+    border-radius: 6px;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #666;
+    font-size: 14px;
+    z-index: 10;
+}
+.password-toggle:hover {
+    color: #333;
+}
+.password-field {
+    position: relative;
+    width: 100%;
+}
+
+.password-field input {
+    padding-right: 40px; /* ruang untuk ikon */
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    box-sizing: border-box; /* PENTING! agar padding tidak menambah lebar */
+}
+
+.toggle-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #666;
+    font-size: 14px;
+    z-index: 10;
+}
+
+.toggle-icon:hover {
+    color: #333;
+    background-color: #f5f5f5;
+    border-radius: 3px;
+    padding: 2px 5px;
+}
+.video-item .container {
+  float: left;
+  margin-right: 15px; /* Memberikan sedikit jarak di sisi kanan video */
+  margin-bottom: 15px; /* Memberikan sedikit jarak di bawah video */
+}
+
+/* --- HAPUS CSS UNTUK TOMBOL NAVIGASI GURU & ALUMNI --- */
+/* Kita hapus semua bagian ini agar tombol tidak muncul */
+/* .guru-container,
+.alumni-container {
+  position: relative;
+  margin-bottom: 30px;
+  padding: 0 50px;
+}
+
+.nav-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(50, 50, 50, 0.8);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  flex-shrink: 0;
+}
+
+.nav-button:hover {
+  background-color: rgba(80, 80, 80, 0.9);
+  transform: translateY(-50%) scale(1.05);
+}
+
+.nav-button:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.nav-button.prev {
+  left: 10px;
+}
+
+.nav-button.next {
+  right: 10px;
+}
+
+.nav-button.hidden {
+  opacity: 0;
+  visibility: hidden;
+} */
+/* --- AKHIR CSS YANG DIHAPUS --- */
